@@ -1,7 +1,6 @@
 package com.dlyong.live.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.dlyong.live.common.RequestCommon;
 import com.dlyong.live.common.ResultInfo;
 import com.dlyong.live.model.User;
 import com.dlyong.live.service.RegisterService;
@@ -27,16 +26,12 @@ public class RegisterController {
    private RegisterService registerService;
 
     /**
-     * @param request
+     * @param user
      * @return
      */
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     @ApiOperation(value="用户注册接口",notes="用户注册接口" ,httpMethod = "POST")
     public Object register (@RequestBody @ApiParam(name="用户对象",value="传入json格式",required=true) User user){
-
-
-        // 获取前台传过来的参数
-        //String jsonStr = RequestCommon.getRequestBodyContent(request);
         ResultInfo resultInfo = registerService.register(user);
         JSONObject jsonObject = new JSONObject(resultInfo.getInfo());
         return  jsonObject;
