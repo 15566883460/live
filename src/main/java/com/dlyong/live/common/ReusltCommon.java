@@ -4,11 +4,11 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class ResultInfo implements Serializable {
+public class ReusltCommon implements Serializable {
 
     private ConcurrentHashMap<String, Object> serviceResultInfo = new ConcurrentHashMap<String, Object>();
 
-    public ResultInfo() {
+    public ReusltCommon() {
 
         serviceResultInfo.put("code", "200");
         serviceResultInfo.put("msg", "成功");
@@ -26,7 +26,7 @@ public class ResultInfo implements Serializable {
         return serviceResultInfo.get(key);
     }
 
-    public void putAll(ResultInfo info) {
+    public void putAll(ReusltCommon info) {
         serviceResultInfo.putAll(info.getInfo());
     }
 
